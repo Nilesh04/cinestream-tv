@@ -1,0 +1,5 @@
+{
+  "name": "CineStream TV",
+  "description": "A high-fidelity Netflix clone with a cinematic Apple TV (tvOS) aesthetic, featuring immersive hero sections and horizontal scrolling rows.",
+  "requestFramePermissions": []
+}
