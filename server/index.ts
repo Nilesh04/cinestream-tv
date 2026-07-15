@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
 import db from './db';
 import moviesRouter from './routes/movies';
 import searchRouter from './routes/search';
@@ -22,6 +23,12 @@ app.use('/api/favorites', favoritesRouter);
 app.get('/api/categories', (_req, res) => {
   const rows = db.prepare('SELECT DISTINCT category FROM movies ORDER BY category').all() as { category: string }[];
   res.json(rows.map(r => r.category));
+});
+
+app.use(express.static(path.join(__dirname, '../dist')));
+
+app.get('*', (_req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
 app.listen(PORT, () => {
