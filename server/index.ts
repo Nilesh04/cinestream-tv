@@ -1,12 +1,16 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import db from './db';
 import moviesRouter from './routes/movies';
 import searchRouter from './routes/search';
 import authRouter from './routes/auth';
 import faqRouter from './routes/faq';
 import favoritesRouter from './routes/favorites';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = parseInt(process.env.PORT || '4000', 10);
